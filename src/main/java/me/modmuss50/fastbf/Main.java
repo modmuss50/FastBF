@@ -6,17 +6,30 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Main {
     public static void main(String[] args) throws Throwable {
+        if (args.length != 1) {
+            System.out.println("Invalid run args, pass a single input file");
+            System.exit(1);
+        }
+
+        Path input = Paths.get(args[0]);
+
+        if (!Files.exists(input)) {
+            System.out.println("Input file not found");
+            System.exit(1);
+        }
+
         // Take the current system time so we can time it roughly
         long start = System.currentTimeMillis();
 
         Operator operator;
 
         // Read the in the file passed from the first command line arg
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Files.newInputStream(Paths.get(args[0]))))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Files.newInputStream(input)))) {
             operator = Parser.parse(reader);
         }
 
