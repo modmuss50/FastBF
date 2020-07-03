@@ -21,22 +21,3 @@ Loop contents are put into their own methods due to java JIT optimisations skipp
 `./gradlew build` will output a compiled jar file into build/libs that can be ran using: 
 
 `java -jar FastBF-1.0-SNAPSHOT.jar file.bf`
-
-## Performance comparisons
-
-Take the following numbers with a grain of salt, feel free to do your own testing and prove me wrong! 
-
-All testing has been done on a 2019 MacBook Pro with an 8 core i9 9980HK using the `time` command using [Erik Bosman's brainfuck mandelbrot](https://github.com/erikdubbelboer/brainfuck-jit/blob/master/mandelbrot.bf).
-
-## Fast BF
-
-Tested with java 14.0.1
-
-2.812s
-
-## [Python-Brainfuck](https://github.com/pocmo/Python-Brainfuck)
-
-
-
-
-## [Brainfuck native JIT](https://github.com/erikdubbelboer/brainfuck-jit)
