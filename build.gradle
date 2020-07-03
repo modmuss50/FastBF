@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+}
+
+group 'me.modmuss50'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.ow2.asm:asm:8.0.1'
+}
